@@ -1,0 +1,665 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>101 وصفة من مطبخك</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Phone first. One centered column of full-bleed bands: every heading, line and card sits in the middle of the screen, with short text and big buttons.
+   Palette comes from the covers: cream and green (book), rose (skin), mint (digestion), midnight (sleep), with an amber button. One font only (Cairo) so the text is easy to read. */
+:root{
+  --bg:#F7FAF4; --surface:#FFFFFF; --soft:#E7F0E4; --ink:#12362A; --muted:#475B50; --line:#D3E0D0;
+  --green:#1E6B47; --on-green:#FFFFFF;
+  --cta:#F2A71B; --cta-ink:#1C1400; --cta-edge:#B97A06;
+  --rose:#FCE4E7; --night:#DFE3F6; --mint:#D8EFE2;
+  --alert:#8F2D1C; --alert-bg:#FCEBE6;
+  --shadow:0 10px 28px rgba(18,54,42,.16);
+  --font:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1B15; --surface:#162920; --soft:#12241B; --ink:#EEF4EC; --muted:#B2C5B8; --line:#2B463A;
+  --green:#72CF9E; --on-green:#0E1B15;
+  --cta:#F6B73F; --cta-ink:#1C1400; --cta-edge:#B27A12;
+  --rose:#3B2530; --night:#1F2649; --mint:#17372A;
+  --alert:#F3AA9A; --alert-bg:#3A201B;
+  --shadow:0 10px 28px rgba(0,0,0,.5);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1B15; --surface:#162920; --soft:#12241B; --ink:#EEF4EC; --muted:#B2C5B8; --line:#2B463A;
+  --green:#72CF9E; --on-green:#0E1B15;
+  --cta:#F6B73F; --cta-ink:#1C1400; --cta-edge:#B27A12;
+  --rose:#3B2530; --night:#1F2649; --mint:#17372A;
+  --alert:#F3AA9A; --alert-bg:#3A201B;
+  --shadow:0 10px 28px rgba(0,0,0,.5);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.125rem;line-height:1.8;direction:rtl;-webkit-text-size-adjust:100%}
+p{margin:0}
+h1,h2,h3{margin:0}
+h1,h2,h3,p{text-wrap:balance}
+h1{font-size:clamp(1.9rem,7.4vw,2.9rem);font-weight:800;line-height:1.4}
+h2{font-size:clamp(1.5rem,5.8vw,2.1rem);font-weight:800;line-height:1.5}
+h3{font-size:1.1rem;font-weight:800;line-height:1.55}
+.muted{color:var(--muted)}
+.page{padding-block-end:96px;text-align:center}
+s{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--alert);text-decoration-thickness:2px}
+.free{display:inline-block;background:var(--green);color:var(--on-green);font-weight:800;font-size:.88rem;line-height:1.8;border-radius:99px;padding:0 12px}
+[data-usd]{white-space:nowrap}
+
+/* bands: each section owns its background and the 18px side gutter */
+.band{padding:40px 18px}
+.band.alt{background:var(--soft)}
+.band.pure{background:var(--surface)}
+.hero{padding-block:18px 32px;background:linear-gradient(180deg,var(--soft) 0%,var(--bg) 100%)}
+.wrap{max-width:640px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+
+/* top: label + currency, centered */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px}
+.chip{display:inline-flex;align-items:center;font-size:.92rem;font-weight:700;color:var(--green);background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:2px 14px;line-height:1.8}
+
+/* currency button: native <select> laid over a styled pill, so phones open their own picker */
+.cur{position:relative;display:inline-flex;max-width:100%}
+.cur-face{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;background:var(--surface);color:var(--ink);border:1.5px solid var(--ink);border-radius:99px;font-weight:700;font-size:.95rem;line-height:1.4}
+.cur-face svg{flex:none}
+.cursel{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px;font-family:inherit}
+.cur:focus-within .cur-face{outline:3px solid var(--green);outline-offset:3px}
+.cur-l .cur-face{min-height:52px;font-size:1.05rem;padding-inline:18px}
+
+/* hero */
+.sub{font-size:1.1rem;color:var(--muted)}
+.bundle{position:relative;width:100%;max-width:520px;margin-inline:auto}
+.bundle img{display:block;width:100%;height:auto}
+.badge{position:absolute;inset-block-start:2%;inset-inline-end:1%;width:104px;height:104px;border-radius:50%;background:var(--cta);color:var(--cta-ink);display:grid;place-content:center;text-align:center;font-weight:800;line-height:1.1;transform:rotate(-8deg);box-shadow:var(--shadow);border:3px solid var(--surface)}
+.badge b{display:block;font-size:1.8rem;font-variant-numeric:tabular-nums}
+.badge span{display:block;font-size:.88rem;line-height:1.25}
+.buy{display:grid;gap:14px;justify-items:stretch}
+.priceline{display:grid;gap:2px;justify-items:center;text-align:center;font-size:1.15rem}
+.priceline b{display:inline-block;font-size:1.5rem;font-weight:800;margin-inline-start:6px}
+.pl-sub{font-size:1rem;color:var(--muted);line-height:1.7}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;background:var(--cta);color:var(--cta-ink);font-family:var(--font);font-weight:800;font-size:1.25rem;line-height:1.3;text-decoration:none;border-radius:14px;padding:14px 22px;box-shadow:0 5px 0 var(--cta-edge);transition:transform .15s}
+.cta:hover{transform:translateY(-2px)}
+.cta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.micro{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;margin:0;padding:0;list-style:none;font-size:.95rem;color:var(--muted);line-height:1.8}
+.micro li::before{content:"✓";color:var(--green);font-weight:800;margin-inline-end:6px}
+
+/* before / after (state) cards: short centered lines */
+.ba2{display:grid;gap:12px}
+.state{border-radius:18px;padding:16px 14px;display:grid;gap:6px}
+.state ul{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.state li{font-size:1.05rem;line-height:1.7}
+.state li::before{font-weight:800;margin-inline-end:8px}
+.state.no{background:var(--alert-bg)}
+.state.no li::before{content:"✕";color:var(--alert)}
+.state.yes{background:var(--surface);border:2px solid var(--green)}
+.state.yes li::before{content:"✓";color:var(--green)}
+
+/* book + ingredients */
+.book{display:grid;gap:16px;justify-items:center}
+.book>img{display:block;width:min(62%,270px);height:auto;border-radius:10px;box-shadow:var(--shadow)}
+.book .txt{display:grid;gap:14px;min-width:0}
+.pull{font-size:1.3rem;font-weight:800;line-height:1.6;padding-block:12px;border-block:3px solid var(--cta)}
+.ing-title{font-weight:700;color:var(--muted);font-size:1rem;line-height:1.7}
+.ing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
+.ing figure{margin:0}
+.ing img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.ing figcaption{font-weight:700;font-size:1rem;line-height:1.5;margin-top:6px}
+
+/* topics: small two-up cards, one short line each */
+.cats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.cat{flex:0 0 calc(50% - 5px);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 10px;display:grid;gap:2px;align-content:start}
+.cat h3{font-size:1.05rem}
+.cat p{font-size:.95rem;color:var(--muted);line-height:1.6}
+
+/* gifts: three covers side by side */
+.gifts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gift{display:grid;gap:8px;align-content:start;background:var(--tint);border-radius:16px;padding:7px 7px 12px}
+.gimg{position:relative}
+.gimg img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:var(--shadow)}
+.ribbon{position:absolute;inset-block-start:6px;inset-inline-start:6px;background:var(--cta);color:var(--cta-ink);font-weight:800;font-size:.78rem;line-height:1.6;padding:0 8px;border-radius:99px;transform:rotate(-8deg);box-shadow:var(--shadow)}
+.gift h3{font-size:.95rem;line-height:1.5}
+.worth{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 10px;font-size:1rem;color:var(--muted);line-height:1.7}
+.g1{--tint:var(--rose)} .g2{--tint:var(--night)} .g3{--tint:var(--mint)}
+
+/* real results: tap the photo to see the "after" (hidden until real photos are added) */
+.rgrid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));justify-items:center}
+.res{margin:0;display:grid;gap:10px;justify-items:center;width:100%}
+.res .note{font-size:.95rem;color:var(--muted);line-height:1.7;text-align:center}
+.ba{position:relative;display:block;width:100%;max-width:340px;aspect-ratio:3/4;padding:0;border:0;border-radius:20px;overflow:hidden;cursor:pointer;background:var(--soft);box-shadow:var(--shadow);font:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+.ba:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.ba-img{position:absolute;inset:0;display:block}
+.ba-img img{display:block;width:100%;height:100%;object-fit:cover}
+.ba-after{clip-path:inset(0 0 0 100%);transition:clip-path .9s cubic-bezier(.65,0,.35,1)}
+.ba.on .ba-after{clip-path:inset(0 0 0 0)}
+.ba-line{position:absolute;inset-block:0;right:0;width:3px;background:#fff;box-shadow:0 0 14px 2px rgba(255,255,255,.85);opacity:0;pointer-events:none;transition:right .9s cubic-bezier(.65,0,.35,1),opacity 0s .9s}
+.ba.on .ba-line{right:100%;opacity:1;transition:right .9s cubic-bezier(.65,0,.35,1),opacity 0s}
+.ba-chip{position:absolute;inset-block-start:12px;inset-inline-start:12px;display:flex;padding:3px;border-radius:99px;background:var(--ink);color:var(--bg);font-weight:800;font-size:.9rem;line-height:1.6}
+.ba-chip span{padding:0 14px;border-radius:99px;transition:background .3s,color .3s}
+.ba-chip .c1{background:var(--cta);color:var(--cta-ink)}
+.ba.on .ba-chip .c1{background:transparent;color:var(--bg)}
+.ba.on .ba-chip .c2{background:var(--cta);color:var(--cta-ink)}
+.ba-hint{position:absolute;inset-block-end:14px;inset-inline:0;margin-inline:auto;width:max-content;max-width:calc(100% - 24px);display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);font-weight:700;font-size:.92rem;line-height:1.6;border-radius:99px;padding:4px 14px}
+.ba-hint i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--cta)}
+.ba-hint em{font-style:normal}
+.ba:not(.used) .ba-hint i{animation:ping 1.6s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 var(--cta)}80%,100%{box-shadow:0 0 0 12px transparent}}
+.ph{display:grid;place-content:center;justify-items:center;gap:8px;width:100%;height:100%;background:var(--soft);color:var(--muted);font-weight:700;outline:2px dashed var(--line);outline-offset:-12px}
+.ph.af{background:var(--mint)}
+.ph svg{opacity:.7}
+
+/* who it is for: centered pills */
+.who{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.who li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-weight:600;line-height:1.7}
+.who li::before{content:"✓";color:var(--green);font-weight:800;margin-inline-end:8px}
+
+/* steps: number + one short line, centered */
+.steps{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:700;line-height:1.5}
+.steps li::before{content:counter(s);flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--green);color:var(--on-green);font-weight:800;font-size:1.15rem;font-variant-numeric:tabular-nums}
+
+/* offer card */
+.offer{background:var(--surface);border:2px solid var(--ink);border-radius:24px;padding:22px 16px;box-shadow:var(--shadow);display:grid;gap:16px}
+.offer>img{display:block;width:min(86%,360px);height:auto;margin-inline:auto}
+.items{margin:0;padding:0;list-style:none;display:grid}
+.items li{display:grid;gap:2px;padding-block:10px;border-block-end:1px dashed var(--line);font-weight:700;line-height:1.55}
+.items li:last-child{border-block-end:0}
+.items .nm::before{content:"✓";color:var(--green);font-weight:800;margin-inline-end:8px}
+.sum{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 12px;background:var(--soft);border-radius:14px;padding:12px 14px;font-size:1.02rem;font-weight:700;line-height:1.7}
+.pbox{display:grid;gap:10px;justify-items:center;border-block:1px dashed var(--line);padding-block:18px}
+.pbox .lbl{font-size:1rem;color:var(--muted);font-weight:700}
+.pr{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 10px}
+.pr .num{font-size:3.4rem;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+.pr .unit{font-size:1.25rem;font-weight:700}
+.pr .approx{font-size:1.7rem;color:var(--muted);font-weight:700}
+.pnote{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:34em}
+.pick{display:grid;gap:8px;justify-items:center}
+
+/* guarantee */
+.guar .seal{justify-self:center}
+.seal{width:108px;height:108px;border-radius:50%;border:4px double var(--cta);background:var(--surface);display:grid;place-items:center;text-align:center;line-height:1.1;font-weight:800}
+.seal b{display:block;font-size:2.3rem;font-variant-numeric:tabular-nums}
+
+/* FAQ: question centered, plus/minus on the side */
+.faq{display:grid;gap:10px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+summary{position:relative;display:block;cursor:pointer;font-weight:700;padding:13px 46px;list-style:none;line-height:1.6}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;inset-inline-end:16px;top:50%;transform:translateY(-50%);font-size:1.6rem;line-height:1;color:var(--green)}
+details[open] summary::after{content:"−"}
+details p{padding:0 18px 16px;color:var(--muted);font-size:1.02rem;line-height:1.8}
+summary:focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:14px}
+
+.disc{font-size:.9rem;color:var(--muted);line-height:1.9;border-top:1px solid var(--line);padding-block-start:20px}
+
+/* fixed buy bar */
+.bar{position:fixed;inset-inline:0;bottom:0;z-index:20;background:var(--bg);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.bar-in{max-width:640px;margin-inline:auto;display:flex;align-items:center;gap:12px}
+.bp{display:grid;line-height:1.3;min-width:0}
+.bp b{font-size:1.05rem;font-weight:800}
+.bp small{font-size:.8rem;color:var(--muted)}
+.bar .cta{flex:1;min-width:0;min-height:50px;padding:10px 14px;font-size:1.05rem;box-shadow:none}
+
+@media(min-width:640px){
+  .band{padding-block:56px}
+  .ba2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ing{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .cat{flex-basis:calc(25% - 7.5px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .cta{transition:none}
+  .ba-after,.ba-line,.ba-chip span{transition-duration:.01s;transition-delay:0s}
+  .ba:not(.used) .ba-hint i{animation:none}
+}
+</style>
+
+<div class="page" dir="rtl" lang="ar">
+
+<!-- 1. HERO -->
+<header class="band hero">
+  <div class="wrap">
+    <div class="top">
+      <span class="chip">كتاب إلكتروني</span>
+      <label class="cur">
+        <span class="cur-face">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+          <span>العملة: <b data-face>دولار أمريكي</b></span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </span>
+        <select class="cursel" id="cur-top" aria-label="اختر العملة"></select>
+      </label>
+    </div>
+
+    <h1>101 وصفة من مطبخك لجمال أكثر وصحة أفضل</h1>
+    <p class="sub">كتاب بالعربية، فيه وصفات سهلة بمكونات من مطبخك.</p>
+
+    <div class="bundle">
+      <img src="img/bundle.webp" width="1100" height="1001" alt="غلاف كتاب 101 وصفة من مطبخك مع أغلفة الهدايا الثلاث" fetchpriority="high" decoding="async">
+      <div class="badge" aria-hidden="true"><div><b dir="ltr">+3</b><span>هدايا مجانًا</span></div></div>
+    </div>
+
+    <div class="buy">
+      <p class="priceline">
+        <span class="pl-main">الكتاب مع 3 هدايا: <b data-usd="9.99"><span dir="ltr">$9.99</span></b></span>
+        <span class="pl-sub">الهدايا الثلاث مجانًا، وقيمتها <s data-usd="15.99" data-qty="3"><span dir="ltr">$47.97</span></s></span>
+      </p>
+      <a class="cta" data-cta href="https://vertexpublishing.gumroad.com/l/wfcxa?wanted=true" target="_blank" rel="noopener">أريد الكتاب والهدايا الآن</a>
+      <ul class="micro">
+        <li>ضمان 30 يومًا</li>
+        <li>تحميل فوري</li>
+        <li>دفع آمن</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<!-- 2. PAIN + BEFORE/AFTER STATE -->
+<section class="band">
+  <div class="wrap">
+    <h2>كم مرة اشتريت منتجًا للعناية ثم وجدت مكوناته في مطبخك؟</h2>
+    <p>العسل والزبادي والشوفان والأعشاب موجودة في كل بيت، لكن الوصفات متفرقة في أماكن كثيرة.</p>
+    <div class="ba2">
+      <div class="state no">
+        <h3>قبل الكتاب</h3>
+        <ul>
+          <li>فيديوهات كثيرة ونسب مختلفة</li>
+          <li>منشورات محفوظة لا تجدها</li>
+          <li>منتجات جاهزة وغالية</li>
+        </ul>
+      </div>
+      <div class="state yes">
+        <h3>مع الكتاب</h3>
+        <ul>
+          <li>كل الوصفات في مكان واحد</li>
+          <li>تبدأ خلال دقائق</li>
+          <li>تستخدم ما في مطبخك</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. THE BOOK + INGREDIENTS -->
+<section class="band alt">
+  <div class="wrap">
+    <div class="book">
+      <img src="img/main.webp" width="640" height="857" alt="غلاف كتاب 101 وصفة من مطبخك لجمال أكثر وصحة أفضل" loading="lazy" decoding="async">
+      <div class="txt">
+        <h2>كتاب واحد بالعربية، تفتحه وتجد وصفتك</h2>
+        <p class="pull">إذا كانت المكونات في بيتك، فالوصفة جاهزة الآن.</p>
+      </div>
+    </div>
+    <p class="ing-title">مكونات بسيطة من مطبخك أو من أقرب محل أعشاب</p>
+    <div class="ing">
+      <figure><img src="img/ing-honey.webp" width="360" height="360" alt="عسل" loading="lazy" decoding="async"><figcaption>عسل</figcaption></figure>
+      <figure><img src="img/ing-ginger.webp" width="360" height="360" alt="زنجبيل" loading="lazy" decoding="async"><figcaption>زنجبيل</figcaption></figure>
+      <figure><img src="img/ing-lemon.webp" width="360" height="360" alt="ليمون" loading="lazy" decoding="async"><figcaption>ليمون</figcaption></figure>
+      <figure><img src="img/ing-mint.webp" width="360" height="360" alt="نعناع" loading="lazy" decoding="async"><figcaption>نعناع</figcaption></figure>
+      <figure><img src="img/ing-chamomile.webp" width="360" height="360" alt="بابونج" loading="lazy" decoding="async"><figcaption>بابونج</figcaption></figure>
+      <figure><img src="img/ing-oats.webp" width="360" height="360" alt="شوفان" loading="lazy" decoding="async"><figcaption>شوفان</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 3b. BEFORE / AFTER (face, tap to see the after). Photos are listed in RESULTS in the script; the section stays hidden while that list is empty. Add #preview-results to the link to see empty frames. -->
+<section class="band pure" id="results" hidden>
+  <div class="wrap">
+    <h2>قبل وبعد</h2>
+    <p class="muted">اضغط على الصورة لترى «بعد».</p>
+    <p class="muted demo" hidden>معاينة للتصميم فقط. ستظهر هنا صور القرّاء الحقيقية.</p>
+    <div class="rgrid" id="rgrid"></div>
+  </div>
+</section>
+
+<!-- 4. WHAT IS INSIDE -->
+<section class="band">
+  <div class="wrap">
+    <h2>ماذا ستجد في الكتاب؟</h2>
+    <div class="cats">
+      <article class="cat"><h3>البشرة</h3><p>ماسكات سهلة تحضّرها في دقائق</p></article>
+      <article class="cat"><h3>الشعر</h3><p>زيوت ووصفات للشعر الجاف</p></article>
+      <article class="cat"><h3>الفم والأسنان</h3><p>عادات بسيطة للعناية اليومية</p></article>
+      <article class="cat"><h3>الهضم</h3><p>مشروبات دافئة بعد الأكل</p></article>
+      <article class="cat"><h3>النوم</h3><p>مشروبات وعادات قبل النوم</p></article>
+      <article class="cat"><h3>البرد والحلق</h3><p>وصفات دافئة في الشتاء</p></article>
+      <article class="cat"><h3>الجسم واليدان</h3><p>مقشرات ومرطبات من البيت</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 5. THE 3 GIFTS -->
+<section class="band alt">
+  <div class="wrap">
+    <h2>ومعه 3 هدايا مجانًا</h2>
+    <p>قيمة كل هدية <b data-usd="15.99"><span dir="ltr">$15.99</span></b>، وتحصل عليها الآن مجانًا.</p>
+    <div class="gifts">
+      <article class="gift g1">
+        <div class="gimg">
+          <img src="img/skin.webp" width="640" height="857" alt="غلاف هدية بشرة أجمل في 7 أيام" loading="lazy" decoding="async">
+          <span class="ribbon">مجانًا</span>
+        </div>
+        <h3>بشرة أجمل في 7 أيام</h3>
+      </article>
+      <article class="gift g2">
+        <div class="gimg">
+          <img src="img/sleep.webp" width="640" height="857" alt="غلاف هدية نوم هادئ الليلة" loading="lazy" decoding="async">
+          <span class="ribbon">مجانًا</span>
+        </div>
+        <h3>نوم هادئ الليلة</h3>
+      </article>
+      <article class="gift g3">
+        <div class="gimg">
+          <img src="img/digest.webp" width="640" height="857" alt="غلاف هدية هضم أسهل وجسم أخف" loading="lazy" decoding="async">
+          <span class="ribbon">مجانًا</span>
+        </div>
+        <h3>هضم أسهل وجسم أخف</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WHO IT IS FOR -->
+<section class="band">
+  <div class="wrap">
+    <h2>الكتاب مناسب لك إذا كنت</h2>
+    <ul class="who">
+      <li>تحب العناية الطبيعية</li>
+      <li>تريد توفير مال منتجات العناية</li>
+      <li>تريد مرجعًا عربيًا لك ولأسرتك</li>
+      <li>تبدأ من الصفر وتريد وصفة سهلة</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 8. STEPS -->
+<section class="band alt">
+  <div class="wrap">
+    <h2>كيف تحصل عليه؟</h2>
+    <ol class="steps">
+      <li>اضغط على الزر</li>
+      <li>ادفع وحمّل الكتاب والهدايا فورًا</li>
+      <li>اختر وصفة وابدأ اليوم</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 9. OFFER / PRICE -->
+<section class="band">
+  <div class="wrap">
+    <div class="offer">
+      <h2>كل هذا بسعر واحد</h2>
+      <img src="img/bundle.webp" width="1100" height="1001" alt="غلاف الكتاب مع أغلفة الهدايا الثلاث" loading="lazy" decoding="async">
+      <ul class="items">
+        <li><span class="nm">الكتاب كاملًا</span></li>
+        <li><span class="nm">هدية 1: بشرة أجمل في 7 أيام</span><span class="worth"><s data-usd="15.99"><span dir="ltr">$15.99</span></s><span class="free">مجانًا</span></span></li>
+        <li><span class="nm">هدية 2: نوم هادئ الليلة</span><span class="worth"><s data-usd="15.99"><span dir="ltr">$15.99</span></s><span class="free">مجانًا</span></span></li>
+        <li><span class="nm">هدية 3: هضم أسهل وجسم أخف</span><span class="worth"><s data-usd="15.99"><span dir="ltr">$15.99</span></s><span class="free">مجانًا</span></span></li>
+      </ul>
+      <p class="sum"><span>قيمة الهدايا الثلاث <s data-usd="15.99" data-qty="3"><span dir="ltr">$47.97</span></s></span><span class="free">مجانًا لك</span></p>
+      <div class="pbox">
+        <span class="lbl">السعر لكل شيء</span>
+        <div class="pr">
+          <span class="approx" data-approx hidden>≈</span>
+          <span class="num" data-num dir="ltr">$9.99</span>
+          <span class="unit" data-unit hidden></span>
+        </div>
+        <p class="pnote" data-note>الدفع بالدولار الأمريكي في صفحة الدفع الآمنة.</p>
+        <div class="pick">
+          <span class="lbl">اعرض السعر بعملتك</span>
+          <label class="cur cur-l">
+            <span class="cur-face">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+              <span data-face>دولار أمريكي</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </span>
+            <select class="cursel" id="cur-offer" aria-label="اختر العملة"></select>
+          </label>
+        </div>
+      </div>
+      <a class="cta" data-cta href="https://vertexpublishing.gumroad.com/l/wfcxa?wanted=true" target="_blank" rel="noopener">أريد الكتاب والهدايا الآن</a>
+      <ul class="micro">
+        <li>ستنتقل إلى صفحة الدفع الآمنة</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10. GUARANTEE -->
+<section class="band alt">
+  <div class="wrap guar">
+    <div class="seal"><span><b>30</b>يومًا</span></div>
+    <h2>إذا لم يعجبك الكتاب، تسترجع المبلغ كاملًا</h2>
+    <p>جرّب الوصفات 30 يومًا. وإذا لم يناسبك الكتاب، أرسل لي رسالة بالرد على رسالة الشراء في بريدك الإلكتروني، وسأعيد لك المبلغ كاملًا.</p>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="band">
+  <div class="wrap">
+    <h2>أسئلة يسألها كثيرون</h2>
+    <div class="faq">
+      <details><summary>بأي شكل يصلني الكتاب؟</summary><p>ملفات تحمّلها مباشرة بعد الدفع، وتقرؤها على الهاتف أو التابلت أو الكمبيوتر.</p></details>
+      <details><summary>هل أحتاج مكونات غالية؟</summary><p>لا. المكونات من مطبخك أو من محل الأعشاب، والوصفات بخطوات بسيطة تناسب المبتدئين.</p></details>
+      <details><summary>هل أستطيع الدفع بعملتي؟</summary><p>الدفع بالدولار الأمريكي. وإذا دفعت ببطاقة بنكية، فبنكك يحوّل المبلغ إلى عملتك. والأسعار بالعملات العربية في هذه الصفحة تقريبية.</p></details>
+      <details><summary>هل الدفع آمن؟</summary><p>نعم. الدفع على منصة دفع عالمية معروفة، ولا تكتب بياناتك البنكية في هذه الصفحة.</p></details>
+      <details><summary>هل الكتاب بديل عن الطبيب؟</summary><p>لا. الكتاب للمعلومات والعناية العامة، ولا يعالج الأمراض. إذا كانت لديك أعراض مستمرة أو مرض مزمن، اذهب إلى الطبيب.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FINAL CTA -->
+<section class="band alt">
+  <div class="wrap">
+    <h2>ابدأ بأول وصفة اليوم</h2>
+    <p class="priceline">
+      <span class="pl-main">الكتاب مع 3 هدايا مجانًا: <b data-usd="9.99"><span dir="ltr">$9.99</span></b></span>
+    </p>
+    <a class="cta" data-cta href="https://vertexpublishing.gumroad.com/l/wfcxa?wanted=true" target="_blank" rel="noopener">أريد الكتاب والهدايا الآن</a>
+    <ul class="micro">
+      <li>ضمان 30 يومًا</li>
+      <li>تحميل فوري</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13. DISCLAIMER -->
+<footer class="band">
+  <div class="wrap">
+    <p class="disc">تنبيه: المحتوى للمعلومات والعناية العامة فقط، وليس نصيحة طبية. استشر طبيبك قبل التجربة إذا كنت حاملًا أو مرضعًا، أو لديك حساسية أو مرض مزمن، أو تأخذ أدوية. جرّب أي وصفة للجلد على مساحة صغيرة أولًا. وتختلف النتائج من شخص لآخر.</p>
+  </div>
+</footer>
+
+<!-- FIXED BUY BAR -->
+<div class="bar">
+  <div class="bar-in">
+    <div class="bp"><b data-usd="9.99"><span dir="ltr">$9.99</span></b><small>الكتاب + 3 هدايا مجانًا</small></div>
+    <a class="cta" data-cta href="https://vertexpublishing.gumroad.com/l/wfcxa?wanted=true" target="_blank" rel="noopener">أريد الكتاب والهدايا</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---- EDIT HERE ------------------------------------------------------- */
+  var CHECKOUT_URL = "https://vertexpublishing.gumroad.com/l/wfcxa?wanted=true";
+  var BASE = 9.99;                  /* price in US dollars */
+  var RATES_DATE = "1 أكتوبر 2026"; /* date of the exchange rates below */
+  /* Before/after face photos (real ones only, with the person's permission). Add one line per person.
+     While this list is empty the section stays hidden. */
+  var RESULTS = [
+    {before: "img/r1-before.webp", after: "img/r1-after.webp", note: "تجربة شخصية. وتختلف النتائج من شخص لآخر."}
+  ];
+  /* ---------------------------------------------------------------------- */
+
+  /* [code, country, currency name, units per 1 USD, rounding step, 1 = official rate] */
+  var GROUPS = [
+    ["دول الخليج", [
+      ["SAR", "السعودية", "ريال سعودي", 3.75, 1],
+      ["AED", "الإمارات", "درهم إماراتي", 3.6725, 1],
+      ["KWD", "الكويت", "دينار كويتي", 0.308528, 0.01],
+      ["QAR", "قطر", "ريال قطري", 3.64, 1],
+      ["BHD", "البحرين", "دينار بحريني", 0.376, 0.01],
+      ["OMR", "عُمان", "ريال عماني", 0.384497, 0.01]
+    ]],
+    ["العراق وبلاد الشام", [
+      ["IQD", "العراق", "دينار عراقي", 1309.953028, 100],
+      ["JOD", "الأردن", "دينار أردني", 0.709, 0.01],
+      ["LBP", "لبنان", "ليرة لبنانية", 89500, 1000],
+      ["SYP", "سوريا", "ليرة سورية", 121.845042, 5],
+      ["ILS", "فلسطين", "شيكل", 3.068956, 1]
+    ]],
+    ["مصر وشمال أفريقيا", [
+      ["EGP", "مصر", "جنيه مصري", 51.965687, 1],
+      ["LYD", "ليبيا", "دينار ليبي", 6.394915, 1],
+      ["TND", "تونس", "دينار تونسي", 2.974813, 1],
+      ["DZD", "الجزائر", "دينار جزائري", 133.846029, 10],
+      ["MAD", "المغرب", "درهم مغربي", 9.685424, 1],
+      ["MRU", "موريتانيا", "أوقية موريتانية", 39.962625, 1]
+    ]],
+    ["السودان واليمن والقرن الأفريقي", [
+      ["SDG", "السودان", "جنيه سوداني", 543.657538, 100, 1],
+      ["YER", "اليمن", "ريال يمني", 236.534961, 10, 1],
+      ["SOS", "الصومال", "شلن صومالي", 571.325155, 100],
+      ["DJF", "جيبوتي", "فرنك جيبوتي", 177.721, 10],
+      ["KMF", "جزر القمر", "فرنك قمري", 433.754349, 10]
+    ]]
+  ];
+
+  var BY = {USD: {c: "USD", name: "دولار أمريكي", rate: 1, step: 1, off: 0}};
+  GROUPS.forEach(function (g) {
+    g[1].forEach(function (r) {
+      BY[r[0]] = {c: r[0], name: r[2], rate: r[3], step: r[4], off: r[5] || 0};
+    });
+  });
+
+  function q(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
+
+  function opt(value, text) {
+    var o = document.createElement("option");
+    o.value = value;
+    o.textContent = text;
+    return o;
+  }
+
+  function fillSelect(sel) {
+    sel.appendChild(opt("USD", "دولار أمريكي · السعر الأصلي"));
+    GROUPS.forEach(function (g) {
+      var og = document.createElement("optgroup");
+      og.label = g[0];
+      g[1].forEach(function (r) {
+        og.appendChild(opt(r[0], r[1] + " · " + r[2] + (r[5] ? " · سعر رسمي" : "")));
+      });
+      sel.appendChild(og);
+    });
+  }
+
+  /* one price in a local currency, rounded to that currency's step */
+  function local(c, usd) { return Math.round(usd * c.rate / c.step) * c.step; }
+
+  function fmtNum(v, c) {
+    var d = c.step < 1 ? 2 : 0;
+    return v.toLocaleString("en-US", {minimumFractionDigits: d, maximumFractionDigits: d});
+  }
+
+  /* html for "usd x qty" in the chosen currency */
+  function moneyHTML(usd, qty, c) {
+    if (c.c === "USD") {
+      var t = Math.round(usd * qty * 100) / 100;
+      return '<span dir="ltr">$' + (t % 1 === 0 ? String(t) : t.toFixed(2)) + "</span>";
+    }
+    return '≈ <span dir="ltr">' + fmtNum(local(c, usd) * qty, c) + "</span> " + c.name;
+  }
+
+  function noteText(c) {
+    if (c.c === "USD") { return "الدفع بالدولار الأمريكي في صفحة الدفع الآمنة."; }
+    var s = "الدفع الفعلي " + BASE + " دولارًا. السعر بعملتك تقريبي حسب أسعار الصرف في " + RATES_DATE + ".";
+    if (c.off) { s += " وهو بسعر الصرف الرسمي، وقد يختلف عن سعر السوق."; }
+    return s;
+  }
+
+  function render(c) {
+    var usd = c.c === "USD";
+    q("[data-num]", function (e) { e.textContent = usd ? "$" + BASE : fmtNum(local(c, BASE), c); });
+    q("[data-unit]", function (e) { e.textContent = usd ? "" : c.name; e.hidden = usd; });
+    q("[data-approx]", function (e) { e.hidden = usd; });
+    q("[data-usd]", function (e) {
+      e.innerHTML = moneyHTML(parseFloat(e.getAttribute("data-usd")), parseInt(e.getAttribute("data-qty") || "1", 10), c);
+    });
+    q("[data-face]", function (e) { e.textContent = c.name; });
+    q("[data-note]", function (e) { e.textContent = noteText(c); });
+    q(".cursel", function (s) { s.value = c.c; });
+  }
+
+  function remember(code) { try { localStorage.setItem("cur", code); } catch (e) {} }
+  function recall() { try { return localStorage.getItem("cur"); } catch (e) { return null; } }
+
+  q(".cursel", function (s) {
+    fillSelect(s);
+    s.addEventListener("change", function () {
+      var c = BY[s.value] || BY.USD;
+      render(c);
+      remember(c.c);
+    });
+  });
+  render(BY[recall()] || BY.USD);
+
+  /* checkout link on every button */
+  q("[data-cta]", function (a) { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+
+  /* the fixed buy bar hides while one of the page's own buy buttons is fully on screen */
+  (function () {
+    var bar = document.querySelector(".bar");
+    if (!bar || !("IntersectionObserver" in window)) { return; }
+    var ctas = Array.prototype.filter.call(document.querySelectorAll("[data-cta]"), function (a) { return !bar.contains(a); });
+    var full = {};
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { full[ctas.indexOf(e.target)] = e.intersectionRatio >= 0.98; });
+      bar.hidden = Object.keys(full).some(function (k) { return full[k]; });
+    }, {threshold: [0, 0.98, 1]});
+    ctas.forEach(function (a) { io.observe(a); });
+  })();
+
+  /* real results: tap a face photo to see the "after" */
+  (function () {
+    var sec = document.getElementById("results");
+    var grid = document.getElementById("rgrid");
+    var items = RESULTS.slice();
+    var demo = !items.length && /preview-results/.test(location.hash);
+    if (demo) { items = [{}]; }
+    if (!items.length) { return; }
+
+    var person = '<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>';
+    function layer(cls, src, label) {
+      var inner = src
+        ? '<img src="' + src + '" alt="صورة ' + label + '" loading="lazy">'
+        : '<span class="ph' + (cls === "ba-after" ? " af" : "") + '">' + person + "<span>صورة " + label + "</span></span>";
+      return '<span class="ba-img ' + cls + '">' + inner + "</span>";
+    }
+    grid.innerHTML = items.map(function (r) {
+      return '<figure class="res"><button type="button" class="ba" aria-pressed="false" aria-label="اضغط على الصورة لترى صورة بعد">' +
+        layer("ba-before", r.before, "قبل") + layer("ba-after", r.after, "بعد") +
+        '<span class="ba-line" aria-hidden="true"></span>' +
+        '<span class="ba-chip" aria-hidden="true"><span class="c1">قبل</span><span class="c2">بعد</span></span>' +
+        '<span class="ba-hint"><i aria-hidden="true"></i><em>اضغط لترى «بعد»</em></span></button>' +
+        (r.note ? '<figcaption class="note">' + r.note + "</figcaption>" : "") + "</figure>";
+    }).join("");
+
+    grid.addEventListener("click", function (ev) {
+      var b = ev.target.closest ? ev.target.closest(".ba") : null;
+      if (!b) { return; }
+      var on = !b.classList.contains("on");
+      b.classList.toggle("on", on);
+      b.classList.add("used");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.setAttribute("aria-label", on ? "اضغط على الصورة لترى صورة قبل" : "اضغط على الصورة لترى صورة بعد");
+      b.querySelector(".ba-hint em").textContent = on ? "اضغط لترى «قبل»" : "اضغط لترى «بعد»";
+    });
+
+    if (demo) { sec.querySelector(".demo").hidden = false; }
+    sec.hidden = false;
+  })();
+})();
+</script>
+
+</body></html>
